@@ -8,20 +8,17 @@
     <thead class="bg-primary">
       <tr>
         <th>Id</th>
-        <th>User</th>
-        <th>Email</th>
+        <th>Product Name</th>
       </tr>
     </thead>
     <tbody>
-      @foreach($users as $user)
+      @foreach($products as $product)
       <tr>
-        <td>{{$user->id}}</td>
-        <td>{{$user->user}}</td>
-        <td>{{$user->email}}</td>
+        <td>{{$product->id}}</td>
+        <td>{{$product->name}}</td>
       </tr>
       @endforeach
     </tbody>
   </table>
 </div>
-
 @endsection
