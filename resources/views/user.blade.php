@@ -7,36 +7,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .mybck
+    {
+      background-color: blue !important;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-  <h2>Striped Rows</h2>
-  <p>The .table-striped class adds zebra-stripes to a table:</p>            
-  <table class="table table-striped">
-    <thead>
+  <h2>Users Table</h2>            
+  <table class="table table-striped table-bordered">
+    <thead class="bg-primary">
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
+        <th>Id</th>
+        <th>User</th>
         <th>Email</th>
       </tr>
     </thead>
     <tbody>
+      @foreach($users as $user)
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>{{$user->id}}</td>
+        <td>{{$user->user}}</td>
+        <td>{{$user->email}}</td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+      @endforeach
     </tbody>
   </table>
 </div>
