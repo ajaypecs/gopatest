@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Faker\Factory as Faker;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -13,25 +13,21 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
+    
     public function run()
     {
-        DB::table('users')->insert
-        ([
-        	$faker = Faker::create();
-        	foreach (range(1,50) as $list) {
-        		DB::table('users')->
-        		([
-        			"user"=>$faker->user,
-        			"email"=>$faker->email,
-        			"email_verified_at"=>$faker->date('Y:m:d'),
-        			"remember_token"=>$faker->password,
-        			"password"=>$faker->password,
-
-        		])
-        	}
-        	'user'=>'Ajay',
-        	'email'=>'ajay@gmail.com',
-        	'password'=>Hash::make('Pass123'),
-        ])
+        $faker = \Faker\Factory::create();
+        foreach (range(1,100) as $value) {
+            DB::table('users')->insert
+            ([
+                    "user"=>$faker->name(),
+                    "email"=>$faker->email(),
+                    "email_verified_at" => now()->format('Y-m-d H:i:s'),
+                    "password"=>$faker->password(),
+                    "remember_token"=>$faker->password(),
+                    'created_at' => now()->format('Y-m-d H:i:s'),
+                    'updated_at' => now()->format('Y-m-d H:i:s'),
+            ]);
+        }
     }
 }
